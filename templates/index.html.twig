@@ -1,5 +1,5 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    Welcome to your new Silex Application!
+    Welcome to your new Silex Application, {% if user is empty %}anonymous{% else %}{{ user.username }}{% endif %}!
 {% endblock %}

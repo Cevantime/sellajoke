@@ -9,10 +9,20 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 //Request::setTrustedProxies(array('127.0.0.1'));
 
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html.twig', array());
+	$token = $app['security.token_storage']->getToken();
+	if($token) {
+		$user = $token->getUser();
+	} else {
+		$user = null;
+	}
+    return $app['twig']->render('index.html.twig', array('user' => $user));
 })
 ->bind('homepage')
 ;
+
+$app->get('/test/insert/user', 'Controllers\\Tests::insertUser');
+
+$app->get('/login', 'Controllers\\Connection::login');
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
