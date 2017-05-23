@@ -12,8 +12,9 @@ $app->register(new AssetServiceProvider());
 $app->register(new TwigServiceProvider());
 $app->register(new HttpFragmentServiceProvider());
 $app['twig'] = $app->extend('twig', function ($twig, $app) {
-    // add custom globals, filters, tags, ...
-
+    // on ajout nos extensions personnalisées
+	$twig->addExtension(new TwigExtensions\AppExtensions());
+	
     return $twig;
 });
 
