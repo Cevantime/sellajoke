@@ -19,9 +19,9 @@ var banner = ['/*!\n',
 
 // Compile LESS files from /less into /css
 gulp.task('less', function() {
-    var f = filter(['*', '!mixins.less', '!variables.less']);
+//    var f = filter(['*', '!mixins.less', '!variables.less', '!main.less']);
     return gulp.src('less/*.less')
-        .pipe(f)
+//        .pipe(f)
         .pipe(less())
         .pipe(header(banner, { pkg: pkg }))
         .pipe(gulp.dest('css'))
@@ -32,7 +32,7 @@ gulp.task('less', function() {
 
 // Minify compiled CSS
 gulp.task('minify-css', ['less'], function() {
-    return gulp.src('css/freelancer.css')
+    return gulp.src(['css/freelancer.css', 'css/main.css'])
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('css'))
@@ -43,7 +43,7 @@ gulp.task('minify-css', ['less'], function() {
 
 // Minify JS
 gulp.task('minify-js', function() {
-    return gulp.src('js/freelancer.js')
+    return gulp.src(['js/freelancer.js', 'js/main.js'])
         .pipe(uglify())
         .pipe(header(banner, { pkg: pkg }))
         .pipe(rename({ suffix: '.min' }))
@@ -78,9 +78,7 @@ gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
 // Configure the browserSync task
 gulp.task('browserSync', function() {
     browserSync.init({
-        server: {
-            baseDir: ''
-        },
+        proxy: 'localhost/sellajoke/web/index_dev.php',
     })
 })
 

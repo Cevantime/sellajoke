@@ -23,7 +23,4 @@ class Home {
 		return $app['twig']->render('home/index.html.twig', array('jokes' => $jokes));
 	}
 	
-	public function login(\Silex\Application $app){
-		return $app['twig']->render('home/login.html.twig');
-	}
 }

@@ -16,7 +16,7 @@ class AppExtensions extends \Twig_Extension{
 	}
 	
 	public function dateTimeFormat($format, $time = null) {
-		if(!$time) {
+		if($time === null) {
 			$time = time();
 		}
 		return date($format, $time);

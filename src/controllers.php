@@ -8,10 +8,26 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
+$app->before(function() use ($app) {
+	$app['twig']->addGlobal('user', $app['user']);
+});
+
+$app->get('/', function () use ($app) {
+	$token = $app['security.token_storage']->getToken();
+	if($token) {
+		$user = $token->getUser();
+	} else {
+		$user = null;
+	}
+    return $app['twig']->render('index.html.twig', array('user' => $user));
+})
+->bind('homepage')
+;
 $app->get('/', 'Controllers\Home::index')->bind('homepage');
 
-$app->get('/login', 'Controllers\Home::login')->bind('login');
+$app->get('/test/insert/user', 'Controllers\\Tests::insertUser');
 
+$app->get('/login', 'Controllers\\Login::index');
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
