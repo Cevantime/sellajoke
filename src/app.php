@@ -69,7 +69,7 @@ $app->register(new SecurityServiceProvider(), array(
 			// on ne souhaite pas autoriser les connexions anonymes au backoffice !
 			'anonymous' => false,
 			
-			'form' => array('login_path' => '/admin/login', 'check_path' => '/bo_login_check'),
+			'form' => array('login_path' => '/login_admin', 'check_path' => 'admin/login_check'),
 			
 			/**
 			 * Nous fournissons cette fois un simple tableau contenant en clé les 
