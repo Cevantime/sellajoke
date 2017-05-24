@@ -81,7 +81,7 @@ $app->register(new SecurityServiceProvider(), array(
 			
 			'users' => array(
 				// mdp = admin
-				'admin' => array('$2y$13$NhmQ7LGidxWTbYWoQs0iAuy8ZhBEyz09v1jTs40EWlXA7pFxh0jGO', 'ROLE_ADMIN'),
+				'admin' => array('ROLE_ADMIN', '$2y$13$NhmQ7LGidxWTbYWoQs0iAuy8ZhBEyz09v1jTs40EWlXA7pFxh0jGO'),
 				// TODO rajouter d'autres administrateurs !
 			)
 		)
