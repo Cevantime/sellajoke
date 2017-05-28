@@ -23,11 +23,19 @@ $app->get('/', function () use ($app) {
 })
 ->bind('homepage')
 ;
-$app->get('/', 'Controllers\Home::index')->bind('homepage');
+$app->get('/', 'Controller\Home::index')->bind('homepage');
 
-$app->get('/test/insert/user', 'Controllers\\Tests::insertUser');
+$app->get('/test/insert/user', 'Controller\\Tests::insertUser');
 
-$app->get('/login', 'Controllers\\Login::index');
+$app->get('/test/insert/category', 'Controller\\Tests::insertCategory');
+
+$app->get('/test/insert/joke', 'Controller\\Tests::insertJoke');
+
+$app->match('/add/joke', 'Controller\\Joke::editJoke')->method('GET|POST');
+
+$app->match('/edit/joke/{jokeId}', 'Controller\\Joke::editJoke')->method('GET|POST');
+
+$app->get('/login', 'Controller\\Login::index');
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {

@@ -9,4 +9,5 @@ namespace App;
  */
 class CustomApp extends \Silex\Application {
 	use \Silex\Application\SecurityTrait;
+	use AssetTrait;
 }

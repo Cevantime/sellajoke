@@ -1,6 +1,6 @@
 <?php
 
-namespace Controllers;
+namespace Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;

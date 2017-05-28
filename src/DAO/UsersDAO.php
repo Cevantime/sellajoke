@@ -55,6 +55,11 @@ class UsersDAO extends DAO implements UserProviderInterface {
     }
     
     public function insert(User $user) {
+		/*
+		 * Dans cet exemple nous utilisons une requeête écrtie "à la main"
+		 * Pour voir un exemple de requeête écrite à l'aide du query builder,
+		 * se référer à la classe CategoryDAO ou à la classe JokeDAO
+		 */
 		$datas = array();
         foreach(array('username','password','role', 'email', 'salt') as $field) {
 			$fieldValue = $user->{'get'.ucfirst($field)}();
@@ -70,6 +75,11 @@ class UsersDAO extends DAO implements UserProviderInterface {
 		
 		
 		$this->db->executeQuery($sql, $datas);
+		
+		// on peut ajouter l'id à l'entité maintenant !
+		
+		$user->setId($this->db->lastInsertId());
+		
     }
 
 

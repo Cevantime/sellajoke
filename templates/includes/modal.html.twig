@@ -12,15 +12,15 @@
 					<div class="modal-body">
 						<h2>{{ joke.title }}</h2>
 						<hr class="star-primary">
-						<img src="{{ asset( joke.img ) }}" class="img-responsive img-centered" alt="">
-						<p>{{ joke.resume }}</p>
+						<img src="{{ asset( 'uploads/jokes/' ~ joke.image.fileName ) }}" class="img-responsive img-centered" alt="">
+						<p>{{ joke.text }}</p>
 						<ul class="list-inline item-details">
-							<li>Date:
+							{#<li>Date:
 								<strong><a href="http://startbootstrap.com">{{ joke.date | date('Y/m/d') }}</a>
 								</strong>
-							</li>
+							</li>#}
 							<li>Catégorie:
-								<strong><a href="http://startbootstrap.com">{{ joke.category }}</a>
+								<strong><a href="http://startbootstrap.com">{{ joke.category.name }}</a>
 								</strong>
 							</li>
 						</ul>

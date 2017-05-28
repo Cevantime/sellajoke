@@ -10,6 +10,8 @@ use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\LocaleServiceProvider;
+use Silex\Provider\FormServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
 
 $app = new CustomApp();
 
@@ -23,6 +25,11 @@ $app->register(new LocaleServiceProvider());
 $app->register(new TranslationServiceProvider(), array(
     'locale_fallbacks' => array('en'),
 ));
+
+$app->register(new FormServiceProvider());
+	
+$app->register(new ValidatorServiceProvider());
+
 
 $app->register(new SecurityServiceProvider(), array(
     'security.firewalls' => array(
