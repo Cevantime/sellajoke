@@ -7,7 +7,8 @@ namespace App;
  *
  * @author cevantime
  */
-class CustomApp extends \Silex\Application {
-	use \Silex\Application\SecurityTrait;
-	use AssetTrait;
+class CustomApp extends \Silex\Application
+{
+    use \Silex\Application\SecurityTrait;
+    use AssetTrait;
 }

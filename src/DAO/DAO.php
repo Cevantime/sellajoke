@@ -7,7 +7,8 @@ namespace DAO;
  *
  * @author Formateur
  */
-abstract class DAO {
+abstract class DAO
+{
     
     /**
      * Une instance de la connexion à la bdd par défaut
@@ -15,15 +16,15 @@ abstract class DAO {
      */
     protected $db;
     
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->db = $db;
     }
     
     /**
      * var array datas données bdd sous la forme d'un tableau associatif
-	 * 
-	 * @return une entité
+     *
+     * @return une entité
      */
-    public abstract function buildEntity(array $datas);
-	
+    abstract public function buildEntity(array $datas);
 }

@@ -8,49 +8,54 @@ namespace Entity;
  *
  * @author cevantime
  */
-class Category {
-	
-	/**
-	 * 
-	 * @var integer 
-	 */
-	private $id;
-	
-	/**
-	 * 
-	 * @var string
-	 */
-	private $name; 
-	
-	/**
-	 *
-	 * @var string
-	 */
-	private $icon;
-	
-	function getId() {
-		return $this->id;
-	}
+class Category
+{
+    
+    /**
+     *
+     * @var integer
+     */
+    private $id;
+    
+    /**
+     *
+     * @var string
+     */
+    private $name;
+    
+    /**
+     *
+     * @var string
+     */
+    private $icon;
+    
+    public function getId()
+    {
+        return $this->id;
+    }
 
-	function getName() {
-		return $this->name;
-	}
+    public function getName()
+    {
+        return $this->name;
+    }
 
-	function getIcon() {
-		return $this->icon;
-	}
+    public function getIcon()
+    {
+        return $this->icon;
+    }
 
-	function setId($id) {
-		$this->id = $id;
-	}
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
-	function setName($name) {
-		$this->name = $name;
-	}
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 
-	function setIcon(varchar $icon) {
-		$this->icon = $icon;
-	}
-
-
+    public function setIcon(varchar $icon)
+    {
+        $this->icon = $icon;
+    }
 }

@@ -19,11 +19,10 @@ $app->register(new WebProfilerServiceProvider(), array(
 
 
 $app['db.options'] = array(
-	'driver' => 'pdo_mysql',
-	'dbname' => 'sellajoke',
-	'host'	=> 'localhost',
-	'user' => 'sellajoke',
-	'password' => 'MAzMFWAJsdOBcJ0I',
-	'charset'	=> 'utf8',
-	
+    'driver' => 'pdo_mysql',
+    'dbname' => 'sellajoke',
+    'host'    => 'localhost',
+    'user' => 'sellajoke',
+    'password' => 'MAzMFWAJsdOBcJ0I',
+    'charset'    => 'utf8',
 );

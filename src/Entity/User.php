@@ -9,11 +9,12 @@ use \Symfony\Component\Security\Core\User\UserInterface;
  *
  * @author Formateur
  */
-class User implements UserInterface {
+class User implements UserInterface
+{
    
     
     /**
-     * 
+     *
      * @var integer $id
      */
     public $id;
@@ -41,67 +42,80 @@ class User implements UserInterface {
      * @var string email
      */
     public $email;
-	
-	/**
-	 * 
-	 * @var $salt
-	 */
-	public $salt;
-	
-    public function eraseCredentials() {
+    
+    /**
+     *
+     * @var $salt
+     */
+    public $salt;
+    
+    public function eraseCredentials()
+    {
         $this->password = '';
     }
     
-    function getRole() {
+    public function getRole()
+    {
         return $this->role;
     }
     
-    function getRoles() {
-        return array($this->role);
+    public function getRoles()
+    {
+        return [$this->role];
     }
 
-    function getPassword() {
+    public function getPassword()
+    {
         return $this->password;
     }
 
-    function getUsername() {
+    public function getUsername()
+    {
         return $this->username;
     }
 
-    function setRole($roles) {
+    public function setRole($roles)
+    {
         $this->role = $roles;
     }
 
-    function setPassword($password) {
+    public function setPassword($password)
+    {
         $this->password = $password;
     }
-	
-	function getSalt() {
-		return $this->salt;
-	}
-	
-	function setSalt($salt) {
-		$this->salt = $salt;
-	}
+    
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+    
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    }
 
-    function setUsername($username) {
+    public function setUsername($username)
+    {
         $this->username = $username;
     }
 
-    function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
-    function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
-    function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
-
 }

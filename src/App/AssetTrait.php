@@ -13,8 +13,10 @@ namespace App;
  *
  * @author cevantime
  */
-trait AssetTrait {
-	public function asset($url, $packageName = null) {
-		return $this['assets.packages']->getUrl($url, $packageName);
-	}
+trait AssetTrait
+{
+    public function asset($url, $packageName = null)
+    {
+        return $this['assets.packages']->getUrl($url, $packageName);
+    }
 }
